@@ -35,10 +35,32 @@ function ping_hosts() {
         done
 }
 
+function reboot_hosts() {
+    host_list=(${1})
+    for host in ${host_list[@]}
+        do
+            HOST_NAME=${CLUSTER_NAME}-$host
+            info_msg "Rebooting Host: ${HOST_NAME}"
+            echo $(ssh -t ${HOST_NAME} sudo reboot 1>&2)
+        done
+}
+
+function poweroff_hosts() {
+    host_list=(${1})
+    for host in ${host_list[@]}
+        do
+            HOST_NAME=${CLUSTER_NAME}-$host
+            info_msg "Shutting Down Host: ${HOST_NAME}"
+            echo $(ssh -t ${HOST_NAME} sudo poweroff 1>&2)
+        done
+}
+
+
+
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
-while getopts "h?vp:" opt; do
+while getopts "h?vpro:" opt; do
     case "$opt" in
     h|\?)
         echo "show help"
@@ -48,6 +70,10 @@ while getopts "h?vp:" opt; do
         echo ${verbose}
         ;;
     p|\?)  ping_hosts "${OPTARG}"
+        ;;
+    r|\?)  reboot_hosts "${OPTARG}"
+        ;;
+    o|\?)  poweroff_hosts "${OPTARG}"
         ;;
     esac
 done
