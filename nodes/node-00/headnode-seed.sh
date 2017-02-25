@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # We will need to install some packages on the head node in order to manage the rest of the nodes.
 # I'm starting with a raspbian jessie base image
 # First of all, I need to install a few packages for development purposes
