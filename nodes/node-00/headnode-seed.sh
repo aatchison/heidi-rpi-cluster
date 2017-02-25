@@ -24,7 +24,7 @@ source bin/bash/include/welcome_message
 function install_devenv_packages () {
     info_msg "Installing: Development environment packages for the headnode"
     enter_the_sudo "apt-get update"
-    install_package " git vim htop "
+    install_package " git vim htop tree "
 }
 
 
@@ -70,5 +70,5 @@ function bootstrap_system () {
 install_devenv_packages
 
 # bootstrap system
-bootstrap_system
+#bootstrap_system
  
