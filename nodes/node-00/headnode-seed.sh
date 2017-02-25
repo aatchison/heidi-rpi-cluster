@@ -12,14 +12,17 @@ TOP=.
 
 # enviroment variable inclues
 ENV_DIR=${TOP}/env
-source ${ENV_DIR}/*
+source ${ENV_DIR}/project
+source ${ENV_DIR}/cluster
+
 
 echo $PROJECT_NAME
+echo ${CLUSTER_NAME}
 
 # function includes
 BASH_INC=${TOP}/bin/bash/include
-source ${BASH_INC}/*
-source ${BASH_INC}/*
+source ${BASH_INC}/sys_os_func
+source ${BASH_INC}/display_func
 
 function install_devenv_packages () {
     info_msg "Installing: Development environment packages for the headnode"

@@ -6,11 +6,3 @@ vars+=(
 )
 source ./env/init_vars
 
-#echo "Exporting Project Vars"
-#for i in "${vars[@]}"
-#do
-#    echo ${i}
-#    export "${i}"
-#done
-
-#echo ${PROJECT_NAME}

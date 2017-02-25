@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+vars+=(
+'CLUSTER_NAME="heidi"'
+'CLUSTER_ADMIN_USER="aatchison"'
+'CLUSTER_ADMIN_EMAIL="arron.atchison@gmail.com"'
+)
+source ./env/init_vars
+

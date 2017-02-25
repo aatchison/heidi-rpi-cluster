@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 for i in "${vars[@]}" 
 do 
-    echo ${i} 
+#    echo ${i} 
     export "${i}" 
 done
 
