@@ -41,21 +41,22 @@ function clone_source () {
 }
 
 function install_docker_engine () {
-    info_msg "Installing: docker-engine from hypriot script"
-    info_msg "[WAIT]: Please wait for task to complete"
-    info_msg "[WAIT]: Downloading and running hypriot docker-script"
-    echo $(curl -s https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh | sudo bash 1>&2 )
-    echo "${EXEC}"
-    info_msg "[WAIT]: Installing docker-hypriot" 
-    install_package "docker-hypriot"
-    info_msg "[WAIT]: adding aatchison user to docker group"
-    enter_the_sudo "usermod -aG docker aatchison"  ### <--- set username etc in the system setup
-    info_msg "[WAIT]: enable docker service "
-    enter_the_sudo "systemctl enable docker.service"
+     info_msg "Installing: docker-engine from get.docker.com "
+     echo $(curl -sSL https://get.docker.com | sh 1>&2)
+#    info_msg "[WAIT]: Please wait for task to complete"
+#    info_msg "[WAIT]: Downloading and running hypriot docker-script"
+#    echo $(curl -s https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh | sudo bash 1>&2 )
+#    echo "${EXEC}"
+#    info_msg "[WAIT]: Installing docker-hypriot" 
+#    install_package "docker-hypriot"
+#    info_msg "[WAIT]: adding aatchison user to docker group"
+#    enter_the_sudo "usermod -aG docker aatchison"  ### <--- set username etc in the system setup
+#    info_msg "[WAIT]: enable docker service "
+#    enter_the_sudo "systemctl enable docker.service"
     
-    info_msg "[DISABLED]Get Source: rpi-docker-builder"
-    #clone_source 'https://github.com/hypriot/rpi-docker-builder.git'
-    #cd source/rpi-docker-builder
+#    info_msg "[DISABLED]Get Source: rpi-docker-builder"
+#    #clone_source 'https://github.com/hypriot/rpi-docker-builder.git'
+#    #cd source/rpi-docker-builder
     #info_msg "[WAIT]: running build.sh script"
     #enter_the_sudo "./build.sh"
     #info_msg "[DISABLED][WAIT]: running run-builder.sh script"
@@ -67,7 +68,7 @@ function bootstrap_system () {
 }
 
 # Initial dev packages
-install_devenv_packages
+#install_devenv_packages
 
 # bootstrap system
 bootstrap_system
