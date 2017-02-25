@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function enter_the_sudo () {
+    info_msg "Entering sudo"
+    info_msg "Waiting for task to complete: ${1}"
+    EXEC=${1}
+    echo $( sudo ${1} 1>&2)
+    info_msg "Exiting sudo"
+}
+
+install_package () {
+  local PKG_LIST=${1}
+  local PKG_MAN_CMD=${6:-"apt-get install -y "}
+  echo ${PKG_LIST}
+  enter_the_sudo """${PKG_MAN_CMD} ${PKG_LIST}"""
+}

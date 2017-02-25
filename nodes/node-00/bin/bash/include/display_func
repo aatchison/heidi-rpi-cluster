@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+function info_msg () {
+    echo "--/###::/__:  ${1} "
+    echo " "
+}
