@@ -10,10 +10,16 @@ TOP=.
 # standard error redirect
 # http://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
 
-# includes
+# enviroment variable inclues
+ENV_DIR=${TOP}/env
+source ${ENV_DIR}/*
+
+echo $PROJECT_NAME
+
+# function includes
 BASH_INC=${TOP}/bin/bash/include
-source ${BASH_INC}/display_func
-source ${BASH_INC}/sys_os_func
+source ${BASH_INC}/*
+source ${BASH_INC}/*
 
 function install_devenv_packages () {
     info_msg "Installing: Development environment packages for the headnode"
@@ -46,13 +52,14 @@ function install_docker_engine () {
     enter_the_sudo "usermod -aG docker aatchison"  ### <--- set username etc in the system setup
     info_msg "[WAIT]: enable docker service "
     enter_the_sudo "systemctl enable docker.service"
-    info_msg "Get Source: rpi-docker-builder"
-    clone_source 'https://github.com/hypriot/rpi-docker-builder.git'
-    cd source/rpi-docker-builder
-    info_msg "[WAIT]: running build.sh script"
-    enter_the_sudo "./build.sh"
-    info_msg "[WAIT]: running run-builder.sh script"
-    enter_the_sudo "./run-builder.sh"
+    
+    info_msg "[DISABLED]Get Source: rpi-docker-builder"
+    #clone_source 'https://github.com/hypriot/rpi-docker-builder.git'
+    #cd source/rpi-docker-builder
+    #info_msg "[WAIT]: running build.sh script"
+    #enter_the_sudo "./build.sh"
+    #info_msg "[DISABLED][WAIT]: running run-builder.sh script"
+    #enter_the_sudo "./run-builder.sh"
 }
 
 function bootstrap_system () {
@@ -60,8 +67,8 @@ function bootstrap_system () {
 }
 
 # Initial dev packages
-#install_devenv_packages
+install_devenv_packages
 
 # bootstrap system
 bootstrap_system
-  
+ 
