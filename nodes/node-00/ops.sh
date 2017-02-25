@@ -55,12 +55,21 @@ function poweroff_hosts() {
         done
 }
 
-
+function remote_command() {
+    host_list=(${1})
+    host_command=${2}
+    for host in ${host_list[@]}
+        do
+            HOST_NAME=${CLUSTER_NAME}-$host
+            info_msg "Running Command: ${host_command} on Host: ${HOST_NAME}"
+            echo $(ssh -t ${HOST_NAME} ${host_command} 1>&2)
+        done
+}
 
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
-while getopts "h?vpro:" opt; do
+while getopts "h?vproc:" opt; do
     case "$opt" in
     h|\?)
         echo "show help"
@@ -74,6 +83,8 @@ while getopts "h?vpro:" opt; do
     r|\?)  reboot_hosts "${OPTARG}"
         ;;
     o|\?)  poweroff_hosts "${OPTARG}"
+        ;;
+    c|\?)  remote_command "${OPTARG}" "${3}"
         ;;
     esac
 done
