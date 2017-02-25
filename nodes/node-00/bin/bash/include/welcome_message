@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# print project info to terminal
+info_msg "
+****
+****    ${PROJECT_NAME}
+****    Author: ${PROJECT_AUTHOR}
+        Email: ${PROJECT_AUTHOR_EMAIL}
+"
+info_msg "
+****
+****    Cluster Name: ${CLUSTER_NAME}
+****    Node Count: ${CLUSTER_NODE_COUNT}
+****    Admin username: ${CLUSTER_ADMIN_USER}
+"
+

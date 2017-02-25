@@ -3,6 +3,7 @@ vars+=(
 'CLUSTER_NAME="heidi"'
 'CLUSTER_ADMIN_USER="aatchison"'
 'CLUSTER_ADMIN_EMAIL="arron.atchison@gmail.com"'
+'CLUSTER_NODE_COUNT=5'
 )
 source ./env/init_vars
 

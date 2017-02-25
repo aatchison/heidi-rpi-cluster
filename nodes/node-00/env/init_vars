@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
+
+source bin/bash/include/display_func
+
 for i in "${vars[@]}" 
 do 
-#    echo ${i} 
+#    info_msg "Exporting Global Variable: ${i}"
     export "${i}" 
 done
 

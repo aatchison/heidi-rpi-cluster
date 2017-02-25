@@ -7,22 +7,19 @@
 # roughly set top level directory if run from node-00/directory
 TOP=.
 
-# standard error redirect
-# http://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
-
 # enviroment variable inclues
 ENV_DIR=${TOP}/env
 source ${ENV_DIR}/project
 source ${ENV_DIR}/cluster
 
-
-echo $PROJECT_NAME
-echo ${CLUSTER_NAME}
-
 # function includes
 BASH_INC=${TOP}/bin/bash/include
 source ${BASH_INC}/sys_os_func
 source ${BASH_INC}/display_func
+
+
+# print project info to terminal
+source bin/bash/include/welcome_message
 
 function install_devenv_packages () {
     info_msg "Installing: Development environment packages for the headnode"
