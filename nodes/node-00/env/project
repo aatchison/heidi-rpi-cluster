@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+vars+=(
+'PROJECT_NAME="Heidi: A Raspberry Pi 3 Development Cluster"'
+'PROJECT_AUTHOR="Arron Atchison"'
+'PROJECT_AUTHOR_EMAIL="arron.atchison@gmail.com"'
+)
+source ./env/init_vars
+
